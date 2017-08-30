@@ -2,8 +2,10 @@
 
 Type `gulp` or `gulp serve` to start the server. You can pass `--product` and `--env` arguments. or omit them and be prompted.
 
+You may want to add `--silent` to supress internal gulp chatter.
+
 ```shell
-gulp # Defaults to `gulp serve`
+gulp --silent # Defaults to `gulp serve`
 gulp serve --product dashboard --env red
 ```
 
@@ -18,21 +20,34 @@ gulp build
 
 ## Feature Requirements
 
-* Must run for **multiple** projects
-    * dashboard
-    * standalone
-    * directory
-    * _recipient app_
-    * etc.!
-* ... which will live on individual subdomains
-* Will probably house the API in the same repo
-* Build to `/dist/`
-* Serve local files (currently from `/dist/`)
-* Copy environment/config files from `/ENV.name.js` to `app/scripts/ENV.js`
-* Run SASS with sourcemaps, autoprefixer and compression
-* Comile javascript with sourcemaps and compression (browserify / watchify)
-* Version bump with token substition
-* Live-Reload / Browsersync
+* [x] Must run for **multiple** products
+    * [x] dashboard
+    * [x] certificate-standalone
+    * [x] directory
+    * [x] recipient
+    * [x] etc.
+    * [ ] ... which will live on individual subdomains
+* [ ] Make the taskrunner easy to understand
+    * [x] Sensible organization
+    * [ ] Sufficient documentation and comments
+* [ ] `serve` must:
+    * [ ] Work for the correct product
+    * [ ] Clean the `/dist/` directory
+    * [ ] Serve files locally
+    * [ ] Have Live-Reload / Browsersync
+    * [ ] Have Live-Reload / Browsersync
+    * [ ] Open localhost when ready
+    * [ ] Run SASS with sourcemaps, autoprefixer and compression
+    * [ ] Compile our javascript bundles with sourcemaps and compression (browserify / watchify)
+    * [ ] Copy environment files
+    * [ ] Lint our files _on change_ (we don't want the noise of **all** files)
+* [ ] `build` must:
+    * [ ] Do all `serve` things...
+    * [ ] Cache-bust
+        * [ ] Use token substitution
+        * [ ] ...consider version bumping
+        * [ ] ...consider using timestamp
+* [ ] We will probably house the API in the same repo
 
 #### Bonus Requirements
 
