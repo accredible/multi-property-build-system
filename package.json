@@ -1,0 +1,17 @@
+{
+  "name": "accredible-build",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "glob": "^7.1.2",
+    "gulp": "^3.9.1",
+    "gulp-prompt": "^0.2.0",
+    "run-sequence": "^2.1.0"
+  }
+}
