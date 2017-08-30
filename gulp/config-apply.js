@@ -7,6 +7,7 @@ require('./config-select-env');
 
 // This will be available to ALL other tasks as `config`, however I recommend using `global.config` to make it easy to understand
 global.config = {
+  cwd: null,
   product: null,
   env: null,
 };
@@ -31,7 +32,7 @@ gulp.task('config-apply', function (done) {
     done();
   } else {
     tasks.push(done);
-    return runSequence.apply(this, tasks);
+    return runSequence.apply(this, tasks); // Each task runs in SEQUENCE
   }
 
 });

@@ -19,6 +19,7 @@ gulp.task('config-select-product', function (done) {
           choices: products
         }],
         function(response){
+          global.config.cwd = './products/'+response.product;
           global.config.product = response.product;
       })
     );

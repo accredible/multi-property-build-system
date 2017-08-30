@@ -1,0 +1,30 @@
+# http://editorconfig.org
+#
+# Automatically apply these rules to existing files
+#  by using js-beautify and friends. This tool doesn't
+#  support globbing... so:
+#
+#   npm install js-beautify glob-run -g
+#
+#   A single file, or all files in a directory (no recursion)
+#
+#     js-beautify   --editorconfig --replace ./file.js
+#     js-beautify   --editorconfig --replace ./directory/*.js
+#     css-beautify  --editorconfig --replace ./directory/*.scss
+#     html-beautify --editorconfig --replace ./directory/*.html
+#
+#   An entire directory, and all children
+#
+#     glob-run js-beautify   --editorconfig --replace ./directory/**/*.js
+#     glob-run css-beautify  --editorconfig --replace ./directory/**/*.scss
+#     glob-run html-beautify --editorconfig --replace ./directory/**/*.html
+
+root = true
+
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 2
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true

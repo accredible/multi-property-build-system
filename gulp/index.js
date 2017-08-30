@@ -2,21 +2,15 @@ var gulp = require('gulp');
 var runSequence = require('run-sequence');
 
 require('./config-apply');
-
-gulp.task('default', ['serve']);
+require('./start-server');
+require('./start-build');
 
 gulp.task('serve', function(done) {
-  runSequence('config-apply', 'start-server', done);
+  runSequence('config-apply', 'start-server', done); // Each task runs in SEQUENCE
 });
 
 gulp.task('build', function(done) {
-  runSequence('config-apply', 'start-build', done);
+  runSequence('config-apply', 'start-build', done); // Each task runs in SEQUENCE
 });
 
-gulp.task('start-server', function(done) {
-  console.log('Serving', global.config);
-});
-
-gulp.task('start-build', function(done) {
-  console.log('start-build', global.config);
-});
+gulp.task('default', ['serve']);
