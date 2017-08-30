@@ -6,6 +6,7 @@ gulp.task('serve', function (done) {
     'config-apply',
     'clean',
     'copy',
+    'sass',
     done
   );
 });

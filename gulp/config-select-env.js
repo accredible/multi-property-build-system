@@ -9,7 +9,8 @@ gulp.task('config-select-env', function (done) {
     envs[e] = envs[e].split('/').pop().split('.')[1];
   }
   // Prompt to choose a product and environment
-  return gulp.src('')
+  return gulp
+    .src('') // We just need a trigger, so the src doesn't matter
     .pipe(
       prompt.prompt(
         [{

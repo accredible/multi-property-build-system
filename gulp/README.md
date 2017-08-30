@@ -36,8 +36,15 @@ gulp build
     * [ ] Serve files locally
     * [ ] Have Live-Reload / Browsersync
     * [ ] Open localhost when ready
-    * [ ] Run SASS with sourcemaps, autoprefixer and compression
-    * [ ] Compile our javascript bundles with sourcemaps and compression (browserify / watchify)
+    * [ ] Compile CSS
+        * [x] SASS
+        * [x] Sourcemaps
+        * [x] autoprefixer
+        * [ ] compression
+    * [ ] Compile JS
+        * [ ] Browserify / Watchify
+        * [ ] Sourcemaps
+        * [ ] Compression
     * [ ] Copy environment files
     * [ ] Lint our files _on change_ (we don't want the noise of **all** files)
 * [ ] `build` must:
@@ -48,9 +55,9 @@ gulp build
         * [ ] ...consider using timestamp
 * [ ] We will probably house the API in the same repo
 
-#### Bonus Requirements
+#### Bonus Features
 
-* Lint our files (we don't pay attention to this as it's ALL files rather than just the one we're working on)
+Consider using [gulp-newer](https://www.npmjs.com/package/gulp-newer) as google use it with their [web-starter-kit](https://github.com/google/web-starter-kit/blob/master/gulpfile.babel.js)
 
 ## Taskrunner Options
 
