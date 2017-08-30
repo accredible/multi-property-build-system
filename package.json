@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "del": "^3.0.0",
     "glob": "^7.1.2",
     "gulp": "^3.9.1",
     "gulp-prompt": "^0.2.0",
