@@ -7,5 +7,5 @@ angular
     version:      'v1',
     apiEndpoint:  'https://blue.api.accredible.com/',
     stripeKey:    'pk_test_cAeVkx5DhTMwelsEudggtgxC',
-    buildVersion: '||VERSION||',
+    buildVersion: '1.0.0',
   });

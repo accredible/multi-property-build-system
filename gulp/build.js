@@ -5,10 +5,12 @@ gulp.task('build', function (done) {
   return runSequence(
     'config',
     'clean',
+    'env',
     [
-      'copy',
       'sass',
       'scripts',
+      'html',
+      'assets',
       // 'static / assets' // Static files (everything that ISN'T handled by other tasks; like js, scss)
     ],
     done

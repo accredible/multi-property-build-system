@@ -21,6 +21,7 @@ gulp.task('config-select-env', function (done) {
         }],
         function(response){
           global.config.env = response.env;
+          global.config.envPath = './env/ENV.'+response.env+'.js';
       })
     );
 });

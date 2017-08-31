@@ -6,12 +6,6 @@ var uglify = require('gulp-uglifycss');
 
 gulp.task('sass', function () {
 
-    global.config = {
-      env: 'red',
-      cwd: './products/certificate-standalone',
-      product: 'certificate-standalone',
-    };
-
   var autoprefixerOptions = {
     browsers: ['last 2 versions', '> 5%'],
   };

@@ -30,7 +30,7 @@ gulp build
 * [ ] Make the taskrunner easy to understand
     * [x] Sensible organization
     * [ ] Sufficient documentation and comments
-* [ ] `build` must:
+* [x] `build` must:
     * [x] Work for the correct product
     * [x] Clean the `/dist/` directory
     * [x] Compile CSS
@@ -42,14 +42,14 @@ gulp build
         * [x] Browserify
         * [X] Sourcemaps
         * [x] Uglification
-    * [ ] Copy environment files
-    * [ ] Copy static files
-    * [ ] Cache-bust
-        * [ ] Use token substitution
-        * [ ] ...consider version bumping
-        * [ ] ...consider using timestamp
+    * [x] Copy environment files
+    * [x] Copy static files
+    * [x] Cache-bust
+        * [x] Use token substitution
+        * [x] ...consider version bumping
+        * [x] ...consider using timestamp
 * [ ] `serve` must:
-    * [ ] Do all `build` things...
+    * [x] Do all `build` things...
     * [ ] Lint our files _on change_ (we don't want the noise of **all** files)
     * [ ] Watch for changes
         * [ ] CSS (see `sass.js` comments for an article with possible solution)
@@ -58,13 +58,14 @@ gulp build
     * [x] Serve files locally
     * [ ] Have Live-Reload / Browsersync
     * [x] Open localhost when ready
-* [ ] We will probably house the API in the same repo
 
 #### Bonus Features
 
 Consider using [gulp-newer](https://www.npmjs.com/package/gulp-newer) as google use it with their [web-starter-kit](https://github.com/google/web-starter-kit/blob/master/gulpfile.babel.js)
 
 Consider adding Service-Worker pre caching.
+
+We will probably house the API in the same repo, prepare for this.
 
 ## Taskrunner Options
 

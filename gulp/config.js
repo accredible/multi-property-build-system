@@ -10,6 +10,7 @@ global.config = {
   cwd: null,
   product: null,
   env: null,
+  envPath: null,
 };
 
 // Takes the config from the command line arguments OR prompts the user for the values
@@ -18,12 +19,14 @@ gulp.task('config', function (done) {
 
   if(argv.product){
     global.config.product = argv.product;
+    global.config.cwd = './products/'+argv.product;
   } else {
     tasks.push('config-select-product');
   }
 
   if(argv.env){
     global.config.env = argv.env;
+    global.config.envPath = './env/ENV.'+argv.env+'.js';
   } else {
     tasks.push('config-select-env');
   }
