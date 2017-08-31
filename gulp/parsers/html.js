@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var newer = require('gulp-newer');
 var replace = require('gulp-replace');
-var package = require('../package.json');
+var package = require('../../package.json');
 
 var cachebust = package.version+'-'+Date.now();
 

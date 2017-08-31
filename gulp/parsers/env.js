@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var replace = require('gulp-replace');
 var rename = require("gulp-rename");
-var package = require('../package.json');
+var package = require('../../package.json');
 
 gulp.task('env', function (done) {
 

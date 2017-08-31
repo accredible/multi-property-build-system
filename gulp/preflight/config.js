@@ -2,9 +2,6 @@ var gulp = require('gulp');
 var argv = require('yargs').argv;
 var runSequence = require('run-sequence');
 
-require('./config-select-product');
-require('./config-select-env');
-
 // These are populated by the command-line or user-selection
 // They're available to other tasks as `config`, however I recommend using `global.config` to make their origin obvious
 global.config = {

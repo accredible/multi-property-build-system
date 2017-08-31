@@ -4,7 +4,7 @@ var prompt = require('gulp-prompt');
 
 gulp.task('config-select-env', function (done) {
   // Get a list of environments
-  var envs = glob.sync('../env/ENV.*.js', { cwd: __dirname });
+  var envs = glob.sync('./env/ENV.*.js');
   for(var e=0,el=envs.length; e<el; e++){
     envs[e] = envs[e].split('/').pop().split('.')[1];
   }
