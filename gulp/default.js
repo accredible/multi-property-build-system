@@ -1,20 +1,17 @@
 var gulp = require('gulp');
-var runSequence = require('run-sequence');
+var browserSync = require('browser-sync').create();
+var reload = browserSync.reload;
+
+// Add browsersync to the global namespace
+global.browserSync = browserSync;
 
 gulp.task('default', [ 'build' ], function (done) {
-  console.log('...now serve + lint');
-  /*
-  return runSequence(
-    'config',
-    'clean',
-    [
-      'copy',
-      'sass',
-      // 'js',
-      // 'static' // Static files (everything that ISN'T handled by other tasks; like js, scss)
-    ],
-    'browser-sync',
-    done
-  );
-  */
+  browserSync.init({
+    server: './dist'
+  });
+
+  gulp.watch(global.config.cwd+'/**/*.html', ['html']);
+  gulp.watch(global.config.cwd+'/**/*.scss', ['sass']);
+  gulp.watch(global.config.cwd+'/**/*.js', ['js-bundles']);
+  gulp.watch([global.config.cwd+'/**/*', '!'+global.config.cwd+'/**/*\\.+(html|js|scss)'], ['assets']);
 });

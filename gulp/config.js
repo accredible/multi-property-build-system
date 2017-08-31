@@ -5,7 +5,8 @@ var runSequence = require('run-sequence');
 require('./config-select-product');
 require('./config-select-env');
 
-// This will be available to ALL other tasks as `config`, however I recommend using `global.config` to make it easy to understand
+// These are populated by the command-line or user-selection
+// They're available to other tasks as `config`, however I recommend using `global.config` to make their origin obvious
 global.config = {
   cwd: null,
   product: null,

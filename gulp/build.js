@@ -8,10 +8,9 @@ gulp.task('build', function (done) {
     'env',
     [
       'sass',
-      'scripts',
+      'js-bundles',
       'html',
       'assets',
-      // 'static / assets' // Static files (everything that ISN'T handled by other tasks; like js, scss)
     ],
     done
   );
