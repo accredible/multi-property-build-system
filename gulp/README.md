@@ -1,12 +1,12 @@
 # Accredible Build System
 
-Type `gulp` or `gulp serve` to start the server. You can pass `--product` and `--env` arguments. or omit them and be prompted.
+Type `gulp` to start the development server. You can pass `--product` and `--env` arguments, or omit them and be prompted.
 
 You may want to add `--silent` to supress internal gulp chatter.
 
 ```shell
 gulp --silent # Defaults to `gulp serve`
-gulp serve --product dashboard --env red
+gulp --product dashboard --env red
 ```
 
 To build, use `gulp build`. Again, you can pass the same arguments.
@@ -30,34 +30,41 @@ gulp build
 * [ ] Make the taskrunner easy to understand
     * [x] Sensible organization
     * [ ] Sufficient documentation and comments
-* [ ] `serve` must:
-    * [ ] Work for the correct product
+* [ ] `build` must:
+    * [x] Work for the correct product
     * [x] Clean the `/dist/` directory
-    * [ ] Serve files locally
-    * [ ] Have Live-Reload / Browsersync
-    * [ ] Open localhost when ready
-    * [ ] Compile CSS
+    * [x] Compile CSS
         * [x] SASS
         * [x] Sourcemaps
-        * [x] autoprefixer
-        * [ ] compression
-    * [ ] Compile JS
-        * [ ] Browserify / Watchify
-        * [ ] Sourcemaps
-        * [ ] Compression
+        * [x] Autoprefixer
+        * [x] Minification
+    * [x] Compile JS
+        * [x] Browserify
+        * [X] Sourcemaps
+        * [x] Uglification
     * [ ] Copy environment files
-    * [ ] Lint our files _on change_ (we don't want the noise of **all** files)
-* [ ] `build` must:
-    * [ ] Do all `serve` things...
+    * [ ] Copy static files
     * [ ] Cache-bust
         * [ ] Use token substitution
         * [ ] ...consider version bumping
         * [ ] ...consider using timestamp
+* [ ] `serve` must:
+    * [ ] Do all `build` things...
+    * [ ] Lint our files _on change_ (we don't want the noise of **all** files)
+    * [ ] Watch for changes
+        * [ ] CSS (see `sass.js` comments for an article with possible solution)
+        * [ ] JS
+        * [ ] Static Files
+    * [x] Serve files locally
+    * [ ] Have Live-Reload / Browsersync
+    * [x] Open localhost when ready
 * [ ] We will probably house the API in the same repo
 
 #### Bonus Features
 
 Consider using [gulp-newer](https://www.npmjs.com/package/gulp-newer) as google use it with their [web-starter-kit](https://github.com/google/web-starter-kit/blob/master/gulpfile.babel.js)
+
+Consider adding Service-Worker pre caching.
 
 ## Taskrunner Options
 

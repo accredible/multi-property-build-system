@@ -13,7 +13,7 @@ global.config = {
 };
 
 // Takes the config from the command line arguments OR prompts the user for the values
-gulp.task('config-apply', function (done) {
+gulp.task('config', function (done) {
   var tasks = [];
 
   if(argv.product){

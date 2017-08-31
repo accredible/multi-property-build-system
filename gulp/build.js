@@ -3,9 +3,14 @@ var runSequence = require('run-sequence');
 
 gulp.task('build', function (done) {
   return runSequence(
-    'config-apply',
+    'config',
     'clean',
-    'copy',
+    [
+      'copy',
+      'sass',
+      'scripts',
+      // 'static / assets' // Static files (everything that ISN'T handled by other tasks; like js, scss)
+    ],
     done
   );
 });

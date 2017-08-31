@@ -1,12 +1,12 @@
 # Accredible Build System
 
-Type `gulp` or `gulp serve` to start the server. You can pass `--product` and `--env` arguments. or omit them and be prompted.
+Type `gulp` to start the development server. You can pass `--product` and `--env` arguments, or omit them and be prompted.
 
 You may want to add `--silent` to supress internal gulp chatter.
 
 ```shell
 gulp --silent # Defaults to `gulp serve`
-gulp serve --product dashboard --env red
+gulp --product dashboard --env red
 ```
 
 To build, use `gulp build`. Again, you can pass the same arguments.
