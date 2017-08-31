@@ -21,7 +21,7 @@ gulp build --product dashboard --env red
 gulp build
 ```
 
-## Feature Requirements
+## Features
 
 * [x] Must run for **multiple** products
     * [x] dashboard
@@ -29,7 +29,6 @@ gulp build
     * [x] directory
     * [x] recipient
     * [x] etc.
-    * [ ] ... which will live on individual subdomains
 * [x] Make the taskrunner easy to understand
     * [x] Sensible organization
     * [x] Sufficient documentation and comments
@@ -54,7 +53,7 @@ gulp build
 * [x] `serve` must:
     * [x] Do all `build` things...
     * [x] Watch for changes
-        * [x] CSS (see `sass.js` comments for an article with possible solution)
+        * [x] CSS
         * [x] JS
         * [x] HTML
         * [x] Assets
@@ -63,23 +62,28 @@ gulp build
     * [x] Open localhost when ready
     * [x] Use [gulp-newer](https://www.npmjs.com/package/gulp-newer) for speed. See: [web-starter-kit](https://github.com/google/web-starter-kit/blob/master/gulpfile.babel.js)
 
-#### Bonus Features
+## Bonus Features
 
+Not on our MVP. But still good.
+
+* [ ] Automatically bump the version with a [pre-commit-hook](https://git-scm.com/book/gr/v2/Customizing-Git-Git-Hooks)
+* [ ] Make this README as awesome as the [web-starter-kit](https://github.com/google/web-starter-kit)
 * [ ] Lint our files _on change_
 * [ ] Add Service-Worker pre caching. See: [web-starter-kit](https://github.com/google/web-starter-kit/blob/master/gulpfile.babel.js)
 * [ ] We will probably house the API in the same repo, prepare for this.
 
-## Taskrunner Options
-
-* NPM scripts
-* Gulp
-    * https://browsersync.io/docs/gulp
-* Grunt
-
 #### References
+
+I've added references to each gulp task where appropriate. The following were my starting points:
 
 * https://github.com/google/web-starter-kit - uses `babel-register`, which is nice, but also rather slow
 * https://github.com/angular/angular-seed
 * https://github.com/gusgard/angular-seed-es6 - this has a retro approach to managing services, controllers, directives etc.
 * https://github.com/jakemmarsh/angularjs-gulp-browserify-boilerplate
 * https://browsersync.io/docs/gulp
+
+# Magnets, How do they work?
+
+I made a yotube video. Go forth and learn.
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/HU7QPPfZLOA/0.jpg)](https://www.youtube.com/watch?v=HU7QPPfZLOA)
