@@ -7,7 +7,7 @@ global.browserSync = browserSync;
 
 gulp.task('default', [ 'build' ], function (done) {
   browserSync.init({
-    server: './dist'
+    server: './build'
   });
 
   gulp.watch(global.config.cwd+'/**/*.html', ['html']);

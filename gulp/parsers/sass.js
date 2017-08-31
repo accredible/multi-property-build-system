@@ -18,13 +18,13 @@ gulp.task('sass', function () {
 
   var task = gulp
     .src(global.config.cwd+'/**/[^_]*.scss')
-    .pipe(newer('./dist/'))
+    .pipe(newer('./build/'))
     .pipe(sourcemaps.init())
     .pipe(sass(sassOptions).on('error', sass.logError))
     .pipe(autoprefixer(autoprefixerOptions))
     .pipe(uglify(uglifyOptions))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('./dist/'));
+    .pipe(gulp.dest('./build/'));
 
   // If browserSync is available, then we're running locally, stream changes
   if(global.browserSync){

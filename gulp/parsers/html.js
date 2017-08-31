@@ -9,10 +9,10 @@ gulp.task('html', function (done) {
   // Define our task
   var task = gulp
     .src(global.config.cwd+'/**/*.html')
-    .pipe(newer('./dist/'))
+    .pipe(newer('./build/'))
     .pipe(replace('||VERSION||', package.version))
     .pipe(replace('||CACHEBUST||', cachebust))
-    .pipe(gulp.dest('./dist/'));
+    .pipe(gulp.dest('./build/'));
 
   // If browserSync is available, then we're running locally, stream changes
   if(global.browserSync){

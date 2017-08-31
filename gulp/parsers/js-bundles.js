@@ -20,7 +20,7 @@ gulp.task('js-bundles', function () {
     .pipe(browserify(browserifyOptions))
     .pipe(uglify(uglifyOptions))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('./dist/'));
+    .pipe(gulp.dest('./build/'));
 
   // If browserSync is available, then we're running locally, stream changes
   if(global.browserSync){

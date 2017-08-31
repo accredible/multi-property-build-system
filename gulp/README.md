@@ -35,7 +35,7 @@ gulp build
     * [x] Sufficient documentation and comments
 * [x] `build` must:
     * [x] Work for the correct product
-    * [x] Clean the `/dist/` directory
+    * [x] Clean the `/build/` directory
     * [x] Compile CSS
         * [x] SASS
         * [x] Sourcemaps

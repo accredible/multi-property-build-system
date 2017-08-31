@@ -9,5 +9,5 @@ gulp.task('env', function (done) {
     .src(global.config.envPath)
     .pipe(replace('||VERSION||', package.version))
     .pipe(rename('ENV.js'))
-    .pipe(gulp.dest(global.config.cwd)); // Note, NOT to dist!
+    .pipe(gulp.dest(global.config.cwd)); // NOT to the build directory!
 });
