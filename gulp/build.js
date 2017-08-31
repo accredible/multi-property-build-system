@@ -5,8 +5,8 @@ gulp.task('build', function (done) {
   return runSequence(
     'config',
     'clean',
-    'env',
     [
+      'env',
       'sass',
       'js-bundles',
       'html',
