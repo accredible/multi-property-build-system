@@ -6,7 +6,7 @@ var runSequence = require('run-sequence');
 // They're available to other tasks as `config`, however I recommend using `global.config` to make their origin obvious
 global.config = {
   cwd: null,
-  product: null,
+  property: null,
   env: null,
   envPath: null,
 };
@@ -15,11 +15,11 @@ global.config = {
 gulp.task('config', function (done) {
   var tasks = [];
 
-  if(argv.product){
-    global.config.product = argv.product;
-    global.config.cwd = './products/'+argv.product;
+  if(argv.property){
+    global.config.property = argv.property;
+    global.config.cwd = './properties/'+argv.property;
   } else {
-    tasks.push('config-select-product');
+    tasks.push('config-select-property');
   }
 
   if(argv.env){

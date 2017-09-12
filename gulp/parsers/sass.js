@@ -35,5 +35,5 @@ gulp.task('sass', function () {
 });
 
 // REFERENCES
-//   https://github.com/google/web-starter-kit/blob/master/gulpfile.babel.js#L86
-//   https://www.sitepoint.com/simple-gulpy-workflow-sass/
+//    https://github.com/google/web-starter-kit/blob/master/gulpfile.babel.js#L86
+//    https://www.sitepoint.com/simple-gulpy-workflow-sass/

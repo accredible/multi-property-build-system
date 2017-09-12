@@ -69,4 +69,4 @@ typings/
 build/
 
 # Ignore the dynamic environment files
-products/*/ENV.js
+properties/*/ENV.js
