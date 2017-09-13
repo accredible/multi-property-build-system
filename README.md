@@ -1,34 +1,37 @@
 # Accredible Build System
 
-Type `gulp` to start the development server.
+D.R.Y. - Build multiple web-properties using the same gulp tasks.
 
 ![Build System](https://user-images.githubusercontent.com/46879/29928916-0c6f2b16-8e62-11e7-8b61-1134b34768c7.gif)
 
-You can pass `--property` and `--env` arguments, or omit them and be prompted.
+# Commands
 
-You may want to add `--silent` to supress internal gulp chatter.
+Each task needs the `--property` and `--env` arguments.
+
+Omit them to be prompted.
+
+## `gulp` - start a development server
 
 ```shell
 gulp
-gulp --silent
 gulp --property dashboard --env red
 ```
 
-To build, use `gulp build`. Again, you can pass the same arguments.
+## `gulp build` - create production files
 
 ```shell
-gulp build --property dashboard --env red
 gulp build
+gulp build --property dashboard --env red
 ```
 
-To test, use `gulp test`. Again, you can pass the same arguments.
+## `gulp karma` - run karma tests
 
 ```shell
-gulp test --property dashboard --env red
-gulp test
+gulp karma
+gulp karma --property dashboard --env red
 ```
 
-## Features
+## Featuress
 
 * [x] Must run for **multiple** properties
     * [x] dashboard
@@ -71,7 +74,7 @@ gulp test
 * [ ] `test` must:
     * [x] Run for a single property and environment
     * [x] Run karma
-    * [ ] Run e2e
+    * [ ] Run e2e - see [gulp-protractor](https://github.com/mllrsohn/gulp-protractor)
     * [ ] Work on TravisCI
 
 ## Bonus Features
@@ -79,10 +82,9 @@ gulp test
 Not on our MVP. But still good.
 
 * [x] Lint our files _on change_
-* [ ] Automatically bump the version with a [pre-commit-hook](https://git-scm.com/book/gr/v2/Customizing-Git-Git-Hooks)
 * [ ] Make this README as awesome as the [web-starter-kit](https://github.com/google/web-starter-kit)
+* [ ] Automatically bump the version with a [pre-commit-hook](https://git-scm.com/book/gr/v2/Customizing-Git-Git-Hooks)
 * [ ] Add Service-Worker pre caching. See: [web-starter-kit](https://github.com/google/web-starter-kit/blob/master/gulpfile.babel.js)
-* [ ] We will probably house the API in the same repo, prepare for this.
 
 #### References
 

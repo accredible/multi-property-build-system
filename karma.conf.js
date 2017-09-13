@@ -1,11 +1,16 @@
-// Karma configuration
-// Generated on Tue Sep 12 2017 17:18:13 GMT+0100 (BST)
-
+/** KARMA CONFIGURATION
+ *
+ *    `gulp/karma.js` modifies the config so that it
+ *     works for the selected property, for example:
+ *
+ *      `basePath` is changed to 'properties/some-property'
+ *      `singleRun` is changed to `true`
+ */
 module.exports = function(config) {
   var cfg = {
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
-    basePath: 'properties/recipient',
+    basePath: '',
 
 
     // frameworks to use
@@ -84,6 +89,7 @@ module.exports = function(config) {
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
     singleRun: false,
+
 
     // Concurrency level
     // how many browser should be started simultaneous
