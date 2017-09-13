@@ -3,7 +3,7 @@ var runSequence = require('run-sequence');
 
 gulp.task('build', function (done) {
   return runSequence(
-    'config',
+    'args',
     'clean',
     [
       'env',

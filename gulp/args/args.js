@@ -11,22 +11,22 @@ global.config = {
   envPath: null,
 };
 
-// Takes the config from the command line arguments OR prompts the user for the values
-gulp.task('config', function (done) {
+// Takes the args from the command line arguments OR prompts the user for the values
+gulp.task('args', function (done) {
   var tasks = [];
 
   if(argv.property){
     global.config.property = argv.property;
     global.config.cwd = './properties/'+argv.property;
   } else {
-    tasks.push('config-select-property');
+    tasks.push('args-property');
   }
 
   if(argv.env){
     global.config.env = argv.env;
     global.config.envPath = './env/ENV.'+argv.env+'.js';
   } else {
-    tasks.push('config-select-env');
+    tasks.push('args-env');
   }
 
   if(!tasks.length){

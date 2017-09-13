@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var glob = require('glob');
 var prompt = require('gulp-prompt');
 
-gulp.task('config-select-env', function (done) {
+gulp.task('args-env', function (done) {
   // Get a list of environments
   var envs = glob.sync('./env/ENV.*.js');
   for(var e=0,el=envs.length; e<el; e++){

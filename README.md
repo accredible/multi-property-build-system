@@ -69,17 +69,18 @@ gulp test
     * [x] Open localhost when ready
     * [x] Use [gulp-newer](https://www.npmjs.com/package/gulp-newer) for speed. See: [web-starter-kit](https://github.com/google/web-starter-kit/blob/master/gulpfile.babel.js)
 * [ ] `test` must:
-    * [ ] Run for a single property and environment
-    * [ ] Run karma
+    * [x] Run for a single property and environment
+    * [x] Run karma
     * [ ] Run e2e
+    * [ ] Work on TravisCI
 
 ## Bonus Features
 
 Not on our MVP. But still good.
 
+* [x] Lint our files _on change_
 * [ ] Automatically bump the version with a [pre-commit-hook](https://git-scm.com/book/gr/v2/Customizing-Git-Git-Hooks)
 * [ ] Make this README as awesome as the [web-starter-kit](https://github.com/google/web-starter-kit)
-* [ ] Lint our files _on change_
 * [ ] Add Service-Worker pre caching. See: [web-starter-kit](https://github.com/google/web-starter-kit/blob/master/gulpfile.babel.js)
 * [ ] We will probably house the API in the same repo, prepare for this.
 

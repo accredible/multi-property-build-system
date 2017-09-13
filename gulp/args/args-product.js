@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var glob = require('glob');
 var prompt = require('gulp-prompt');
 
-gulp.task('config-select-property', function (done) {
+gulp.task('args-property', function (done) {
   // Get a list of properties
   var properties = glob.sync('./properties/*/');
   for(var p=0,pl=properties.length; p<pl; p++){

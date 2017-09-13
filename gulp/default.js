@@ -10,8 +10,10 @@ gulp.task('default', [ 'build' ], function (done) {
     server: './build'
   });
 
+  gulp.start('js-lint');
+
   gulp.watch(global.config.cwd+'/**/*.html', ['html']);
   gulp.watch(global.config.cwd+'/**/*.scss', ['sass']);
-  gulp.watch(global.config.cwd+'/**/*.js', ['js-bundles']);
+  gulp.watch(global.config.cwd+'/**/*.js', ['js-lint', 'js-bundles']);
   gulp.watch([global.config.cwd+'/**/*', '!'+global.config.cwd+'/**/*\\.+(html|js|scss)'], ['assets']);
 });
