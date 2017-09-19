@@ -16,6 +16,10 @@ gulp.task('default', [ 'args' ], function (done) {
   }
   // Start the selected task
   return gulp.start(global.config.task);
+  /*
+  require('./gulp/parsers/env.js');
+  return gulp.start('env');
+  */
 });
 
 // A little bit of fun
@@ -35,13 +39,16 @@ function dumpHeader(){
 
 // Outputs the command for next run
 function dumpCommand(){
-  var cyan = '\033[0;36m';
-  var norm = '\033[0m';
-  var cmd = global.config.getCommand();
+  if(global.config.didPrompt){
+    var cyan = '\033[0;36m';
+    var norm = '\033[0m';
+    var cmd = global.config.getCommand();
 
-  console.log(`.___________________________________ _ _
+    console.log(`.___________________________________ _ _
 |
 | ${cyan}To run this without prompts, use:${norm}
 | ${cmd}
 |___________________________________ _ _`);
+
+  }
 }

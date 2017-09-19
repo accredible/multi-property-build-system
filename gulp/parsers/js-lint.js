@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var eslint = require('gulp-eslint');
-var cache = require('gulp-cached');
+// var cache = require('gulp-cached');
+var changedInPlace = require('gulp-changed-in-place');
 
 gulp.task('js-lint', function () {
 
@@ -14,7 +15,7 @@ gulp.task('js-lint', function () {
 
   var task = gulp
     .src([global.config.cwd+'/**/*.js', ,'!node_modules/**'])
-    .pipe(cache('js-lint'))
+    .pipe(changedInPlace())
     .pipe(eslint(eslintOptions))
     .pipe(eslint.format());
 

@@ -5,6 +5,7 @@ var argv = require('yargs').argv;
 // They're available to other tasks as `config`, however I recommend using `global.config` to make their origin obvious
 global.config = {
   getCommand: getCommand,
+  didPrompt: true,
   cwd: null,
   property: null,
   env: null,
@@ -34,6 +35,7 @@ gulp.task('args', function (done) {
   }
 
   if(!tasks.length){
+    global.config.didPrompt = false;
     done();
   } else {
     var runSequence = require('run-sequence');
