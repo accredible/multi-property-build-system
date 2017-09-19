@@ -1,5 +1,4 @@
 "use strict";
-// dashboard.accredible.com
 angular
   .module('ENV', [])
   .constant('ENV', {

@@ -1,11 +1,10 @@
-'use strict';
-// red.dashboard.accredible.com
+"use strict";
 angular
   .module('ENV', [])
   .constant('ENV', {
-    name:         'red',
+    name:         'blue',
     version:      'v1',
-    apiEndpoint:  'https://red.api.accredible.com/',
+    apiEndpoint:  'https://blue.api.accredible.com/',
     stripeKey:    'pk_test_cAeVkx5DhTMwelsEudggtgxC',
     buildVersion: '||VERSION||',
   });

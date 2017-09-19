@@ -68,5 +68,5 @@ typings/
 # Ignore the build folder
 build/
 
-# Ignore the dynamic environment files
-properties/*/ENV.js
+# Ignore the dynamic environment directory
+properties/*/env/

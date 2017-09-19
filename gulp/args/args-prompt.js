@@ -50,9 +50,9 @@ gulp.task('args-property', function (done) {
 
 gulp.task('args-env', function (done) {
   // Get a list of environments
-  var envs = glob.sync('./env/ENV.*.js');
+  var envs = glob.sync('./env/*');
   for(var e=0,el=envs.length; e<el; e++){
-    envs[e] = envs[e].split('/').pop().split('.')[1];
+    envs[e] = envs[e].split('/').pop();
   }
   // Prompt to choose an environment
   return gulp
@@ -67,7 +67,6 @@ gulp.task('args-env', function (done) {
         }],
         function(response){
           global.config.env = response.env;
-          global.config.envPath = './env/ENV.'+response.env+'.js';
       })
     );
 });

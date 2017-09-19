@@ -8,7 +8,6 @@ global.config = {
   cwd: null,
   property: null,
   env: null,
-  envPath: null,
   task: null,
 };
 
@@ -30,7 +29,6 @@ gulp.task('args', function (done) {
 
   if(argv.env){
     global.config.env = argv.env;
-    global.config.envPath = './env/ENV.'+argv.env+'.js';
   } else {
     tasks.push('args-env');
   }
