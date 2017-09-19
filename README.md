@@ -6,29 +6,31 @@ D.R.Y. - Build multiple web-properties using the same gulp tasks.
 
 # Commands
 
-Each task needs the `--property` and `--env` arguments.
+The `gulp` command needs `--task`, `--property` and `--env` arguments.
 
 Omit them to be prompted.
 
-## `gulp` - start a development server
+## `gulp` - be prompted
+
+## `gulp --task develop` - start a development server
 
 ```shell
-gulp
-gulp --property dashboard --env red
+gulp --task develop
+gulp --task develop --property dashboard --env red
 ```
 
-## `gulp build` - create production files
+## `gulp --task build` - create production files
 
 ```shell
-gulp build
-gulp build --property dashboard --env red
+gulp --task build
+gulp --task build --property dashboard --env red
 ```
 
-## `gulp karma` - run karma tests
+## `gulp --task karma` - run karma tests
 
 ```shell
-gulp karma
-gulp karma --property dashboard --env red
+gulp --task karma
+gulp --task karma --property dashboard --env red
 ```
 
 ## Featuress

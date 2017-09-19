@@ -5,7 +5,7 @@ var reload = browserSync.reload;
 // Add browsersync to the global namespace
 global.browserSync = browserSync;
 
-gulp.task('default', [ 'build' ], function (done) {
+gulp.task('develop', [ 'build' ], function (done) {
   browserSync.init({
     server: './build'
   });
