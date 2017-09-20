@@ -5,34 +5,51 @@ var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
 var uglify = require('gulp-uglifycss');
 
-gulp.task('sass', function () {
-  var autoprefixerOptions = {
-    browsers: ['last 2 versions', '> 5%'],
-  };
-  var sassOptions = {
-    errLogToConsole: true,
-    outputStyle: 'expanded', // outputStyle: 'compressed'
-    precision: 10,
-  };
-  var uglifyOptions = {};
 
-  var task = gulp
-    .src(global.config.cwd+'/**/[^_]*.scss')
-    .pipe(newer('./build/'))
+var autoprefixerOptions = {
+  browsers: ['last 2 versions', '> 5%'],
+};
+var sassOptions = {
+  errLogToConsole: true,
+  outputStyle: 'expanded', // outputStyle: 'compressed'
+  precision: 10,
+};
+var uglifyOptions = {};
+
+
+gulp.task('sass-build', function () {
+  return gulp
+    .src('**/[^_]*.scss', { cwd: global.config.cwd })
+    // Transform
+    .pipe(sass(sassOptions).on('error', sass.logError))
+    .pipe(autoprefixer(autoprefixerOptions))
+    .pipe(uglify())
+    // Output
+    .pipe(gulp.dest('./build/'));
+});
+
+
+gulp.task('sass-watch', function () {
+  gulp.watch('**/*.scss', { cwd: global.config.cwd }, ['sass-watch-stream']); // Note that this watches ALL scss files
+  return createWatchStream();
+});
+gulp.task('sass-watch-stream', createWatchStream);
+
+
+function createWatchStream(){
+  return gulp
+    .src('**/[^_]*.scss', { cwd: global.config.cwd })
     .pipe(sourcemaps.init())
+    // Transform
     .pipe(sass(sassOptions).on('error', sass.logError))
     .pipe(autoprefixer(autoprefixerOptions))
     .pipe(uglify(uglifyOptions))
+    // Output
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('./build/'));
+    .pipe(gulp.dest('./build/'))
+    .pipe(global.browserSync.stream());
+}
 
-  // If browserSync is available, then we're running locally, stream changes
-  if(global.browserSync){
-    task.pipe(global.browserSync.stream());
-  }
-
-  return task;
-});
 
 // REFERENCES
 //    https://github.com/google/web-starter-kit/blob/master/gulpfile.babel.js#L86

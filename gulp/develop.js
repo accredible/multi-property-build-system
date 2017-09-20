@@ -1,19 +1,37 @@
 var gulp = require('gulp');
-var browserSync = require('browser-sync').create();
-var reload = browserSync.reload;
+var runSequence = require('run-sequence');
 
-// Add browsersync to the global namespace
-global.browserSync = browserSync;
 
-gulp.task('develop', [ 'build' ], function (done) {
-  browserSync.init({
-    server: './build'
+global.browserSync = require('browser-sync').create();
+
+
+require('./parsers/clean.js');
+require('./parsers/env.js');
+require('./parsers/sass.js');
+require('./parsers/js.js');
+require('./parsers/js-lint.js');
+require('./parsers/html.js');
+require('./parsers/assets.js');
+
+
+gulp.task('develop', function (done) {
+  return runSequence(
+    'clean',
+    'env',
+    [
+      'sass-watch',
+      'js-watch',
+      'js-lint-watch',
+      'html-watch',
+      'assets-watch'
+    ],
+    'browsersync'
+  );
+});
+
+
+gulp.task('browsersync', function (done) {
+  global.browserSync.init({
+    server: './build/'
   });
-
-  gulp.start('js-lint');
-
-  gulp.watch(global.config.cwd+'/**/*.html', ['html']);
-  gulp.watch(global.config.cwd+'/**/*.scss', ['sass']);
-  gulp.watch(global.config.cwd+'/**/*.js', ['js-lint', 'js-bundles']);
-  gulp.watch([global.config.cwd+'/**/*', '!'+global.config.cwd+'/**/*\\.+(html|js|scss)'], ['assets']);
 });

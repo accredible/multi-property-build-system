@@ -1,6 +1,6 @@
-# Accredible Build System
+# Multi-Property Build-System
 
-D.R.Y. - Build multiple web-properties using the same gulp tasks.
+**Don't Repeat Yourself** - Manage multiple web-properties using a single task runner.
 
 ![Build System](https://user-images.githubusercontent.com/46879/29928916-0c6f2b16-8e62-11e7-8b61-1134b34768c7.gif)
 
@@ -26,11 +26,11 @@ gulp --task build
 gulp --task build --property dashboard --env red
 ```
 
-## `gulp --task karma` - run karma tests
+## `gulp --task test` - run tests
 
 ```shell
-gulp --task karma
-gulp --task karma --property dashboard --env red
+gulp --task test
+gulp --task test --property dashboard --env red
 ```
 
 ## Featuress

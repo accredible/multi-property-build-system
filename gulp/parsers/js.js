@@ -11,25 +11,31 @@ var gutil = require('gulp-util');
 var mergeStream = require('merge-stream');
 
 
+var src = '**/*.bundle.js';
+var opts = {
+  cwd: global.config.cwd,
+};
+
+
 gulp.task('js-build', function(done){
-  var bundlePaths = glob.sync('./**/*.bundle.js', { cwd: global.config.cwd });
+  var bundlePaths = glob.sync(src, opts);
   var streams = bundlePaths.map(createBuildStream);
   return mergeStream(...streams);
 });
 
 
 gulp.task('js-watch', function(done){
-  var bundlePaths = glob.sync('./**/*.bundle.js', { cwd: global.config.cwd });
+  var bundlePaths = glob.sync(src, opts);
   var streams = bundlePaths.map(createWatchStream);
   return mergeStream(...streams);
 });
 
 
 function createBuildStream(bundlePath){
-  var opts = {
+  var browserifyOpts = {
     basedir: global.config.cwd
   };
-  return browserify(bundlePath, opts)
+  return browserify(bundlePath, browserifyOpts)
     .bundle()
     .on('error', gutil.log.bind(gutil, 'Browserify Error'))
     .pipe(source(bundlePath))
@@ -42,11 +48,11 @@ function createBuildStream(bundlePath){
 
 
 function createWatchStream(bundlePath){
-  var opts = assign({}, watchify.args, {
+  var browserifyOpts = assign({}, watchify.args, {
     basedir: global.config.cwd,
     debug: true,
   });
-  var bundle = browserify(bundlePath, opts);
+  var bundle = browserify(bundlePath, browserifyOpts);
   bundle = watchify(bundle); // Replace `bundle`
   bundle.on('update', rebundle);
   bundle.on('log', gutil.log);

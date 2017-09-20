@@ -1,18 +1,35 @@
 var gulp = require('gulp');
 var newer = require('gulp-newer');
+var gulpif = require('gulp-if');
 
-gulp.task('assets', function (done) {
 
-  // Match ALL files, excluding those handled by other tasks
-  var task = gulp
-    .src([global.config.cwd+'/**/*', '!'+global.config.cwd+'/**/*\\.+(html|js|scss)'])
-    .pipe(newer('./build/'))
+var src = [
+  '**/*',
+  '!**/*\\.+(html|bundle.js|scss)', // Files handled by other tasks
+];
+var opts = {
+  cwd: global.config.cwd,
+};
+
+
+gulp.task('assets-build', function (done) {
+  return gulp
+    .src(src, opts)
     .pipe(gulp.dest('./build/'));
-
-  // If browserSync is available, then we're running locally, stream changes
-  if(global.browserSync){
-    task.pipe(global.browserSync.stream());
-  }
-
-  return task;
 });
+
+
+gulp.task('assets-watch', function (done) {
+  gulp.watch(src, opts, ['assets-watch-stream']);
+  return createWatchStream();
+});
+gulp.task('assets-watch-stream', createWatchStream);
+
+
+function createWatchStream(){
+  return gulp
+    .src(src, opts)
+    .pipe(newer('./build/'))
+    .pipe(gulp.dest('./build/'))
+    .pipe(browserSync.stream());
+}
