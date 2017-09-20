@@ -1,16 +1,21 @@
-# Multi-Property Build-System
+![Multi-Property Build-System](https://user-images.githubusercontent.com/46879/30689937-7e7fa024-9eba-11e7-9e5c-d38fd35f040c.jpg)
 
-**Don't Repeat Yourself** - Manage multiple web-properties using a single task runner.
-
-![Build System](https://user-images.githubusercontent.com/46879/29928916-0c6f2b16-8e62-11e7-8b61-1134b34768c7.gif)
+**Develop, Build and Test** multiple web-properties using a single task runner. _Don't Repeat Yourself._
 
 # Commands
 
-The `gulp` command needs `--task`, `--property` and `--env` arguments.
+The `gulp` command has optional `--task`, `--property` and `--env` arguments.
 
-Omit them to be prompted.
+## `gulp` - prompt for arguments
 
-## `gulp` - be prompted
+```shell
+gulp
+gulp --silent
+```
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/46879/30666411-23ba48b0-9e4c-11e7-8546-15eb91343869.gif" alt="Demonstrating the Multi Property Build System">
+</p>
 
 ## `gulp --task develop` - start a development server
 
@@ -77,14 +82,14 @@ gulp --task test --property dashboard --env red
     * [x] Run for a single property and environment
     * [x] Run karma
     * [ ] Run e2e - see [gulp-protractor](https://github.com/mllrsohn/gulp-protractor)
-    * [ ] Work on TravisCI
+    * [ ] Functional on TravisCI
 
 ## Bonus Features
 
 Not on our MVP. But still good.
 
 * [x] Lint our files _on change_
-* [ ] Make this README as awesome as the [web-starter-kit](https://github.com/google/web-starter-kit)
+* [x] Make this README as awesome as the [web-starter-kit](https://github.com/google/web-starter-kit)
 * [ ] Automatically bump the version with a [pre-commit-hook](https://git-scm.com/book/gr/v2/Customizing-Git-Git-Hooks)
 * [ ] Add Service-Worker pre caching. See: [web-starter-kit](https://github.com/google/web-starter-kit/blob/master/gulpfile.babel.js)
 
@@ -92,9 +97,9 @@ Not on our MVP. But still good.
 
 I've added references to each gulp task where appropriate. The following were my starting points:
 
-* https://github.com/google/web-starter-kit - uses `babel-register`, which is nice, but also rather slow
+* https://github.com/google/web-starter-kit - uses `babel-register`, which is nice, but also slow
 * https://github.com/angular/angular-seed
-* https://github.com/gusgard/angular-seed-es6 - this has a retro approach to managing services, controllers, directives etc.
+* https://github.com/gusgard/angular-seed-es6
 * https://github.com/jakemmarsh/angularjs-gulp-browserify-boilerplate
 * https://browsersync.io/docs/gulp
 

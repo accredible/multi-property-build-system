@@ -8,7 +8,7 @@ var assign = require('lodash.assign');
 var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
 var gutil = require('gulp-util');
-var mergeStream = require('merge-stream');
+var es = require('event-stream');
 
 
 var src = '**/*.bundle.js';
@@ -20,14 +20,22 @@ var opts = {
 gulp.task('js-build', function(done){
   var bundlePaths = glob.sync(src, opts);
   var streams = bundlePaths.map(createBuildStream);
-  return mergeStream(...streams);
+  if(streams){
+    es.merge(streams).on('end', done);
+  } else {
+    done();
+  }
 });
 
 
 gulp.task('js-watch', function(done){
   var bundlePaths = glob.sync(src, opts);
   var streams = bundlePaths.map(createWatchStream);
-  return mergeStream(...streams);
+  if(streams){
+    es.merge(streams).on('end', done);
+  } else {
+    done();
+  }
 });
 
 
@@ -75,5 +83,6 @@ function createWatchStream(bundlePath){
 
 
 // REFERENCES
+//   https://fettblog.eu/gulp-browserify-multiple-bundles/
 //   https://gulpjs.org/recipes/fast-browserify-builds-with-watchify
 //   https://gist.github.com/ramasilveyra/b4309edf809e55121385
