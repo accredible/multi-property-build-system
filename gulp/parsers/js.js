@@ -4,55 +4,69 @@ var browserify = require('browserify');
 var watchify = require('watchify');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
-var merge = require('utils-merge');
+var assign = require('lodash.assign');
 var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
-var gulpif = require('gulp-if');
 var gutil = require('gulp-util');
 var mergeStream = require('merge-stream');
 
 
-
-// Scan the property for `.bundle.js` files
-var bundlePaths = glob.sync(global.config.cwd+'/**/*.bundle.js');
-
 gulp.task('js-build', function(done){
-  return createBundles(false);
+  var bundlePaths = glob.sync('./**/*.bundle.js', { cwd: global.config.cwd });
+  var streams = bundlePaths.map(createBuildStream);
+  return mergeStream(...streams);
 });
+
 
 gulp.task('js-watch', function(done){
-  return createBundles(true);
+  var bundlePaths = glob.sync('./**/*.bundle.js', { cwd: global.config.cwd });
+  var streams = bundlePaths.map(createWatchStream);
+  return mergeStream(...streams);
 });
 
-function createBundles(isWatching){
-  var streams = bundlePaths.map(createBundle, isWatching);
-  return mergeStream(...streams);
+
+function createBuildStream(bundlePath){
+  var opts = {
+    basedir: global.config.cwd
+  };
+  return browserify(bundlePath, opts)
+    .bundle()
+    .on('error', gutil.log.bind(gutil, 'Browserify Error'))
+    .pipe(source(bundlePath))
+    .pipe(buffer())
+    // Transform
+    .pipe(uglify())
+    // Output
+    .pipe(gulp.dest('./build/'));
 }
 
-function createBundle(bundlePath, isWatching){
-  var src = bundlePath.replace(global.config.cwd+'/', './');
-  var opts = merge(watchify.args, {
-    entries: [ bundlePath ],
+
+function createWatchStream(bundlePath){
+  var opts = assign({}, watchify.args, {
+    basedir: global.config.cwd,
     debug: true,
   });
-  var b = browserify(opts);
-  var rebundle = function(){
-    return b.bundle()
+  var bundle = browserify(bundlePath, opts);
+  bundle = watchify(bundle); // Replace `bundle`
+  bundle.on('update', rebundle);
+  bundle.on('log', gutil.log);
+  function rebundle(){
+    return bundle
+      .bundle()
       .on('error', gutil.log.bind(gutil, 'Browserify Error'))
-      .pipe(source(src))
+      .pipe(source(bundlePath))
       .pipe(buffer())
-      .pipe(gulpif(isWatching, sourcemaps.init()))
+      .pipe(sourcemaps.init({ loadMaps: true }))
+      // Transform
       .pipe(uglify())
-      .pipe(gulpif(isWatching, sourcemaps.write('.')))
-      .pipe(gulp.dest('./build/'));
-  }
-  if (isWatching) {
-    b = watchify(b);
-    b.on('update', rebundle);
-    b.on('log', gutil.log);
+      // Output
+      .pipe(sourcemaps.write())
+      .pipe(gulp.dest('./build/'))
+      .pipe(global.browserSync.stream());
   }
   return rebundle();
 }
+
 
 // REFERENCES
 //   https://gulpjs.org/recipes/fast-browserify-builds-with-watchify
