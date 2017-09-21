@@ -38,6 +38,24 @@ gulp --task test
 gulp --task test --property dashboard --env red
 ```
 
+# Directory Structure
+
+`📁 build/` - properties build to, and serve from, this folder.
+`📁 env/` - multiple environment folders, copied to the active property before build.
+`📁 gulp/` - task runner logic.
+`📁 properties/` - multiple web properties.
+`📃 karma.conf.js` - unit-testing config, runs within the active property.
+
+# How does this work?
+
+I made a youtube video. Go forth and learn.
+
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=qnUL8ktbMp0" target="_blank">
+    <img src="https://img.youtube.com/vi/qnUL8ktbMp0/maxresdefault.jpg" alt="How does the Multi-Build System Work?">
+  </a>
+</p>
+
 ## Featuress
 
 * [x] Must run for **multiple** properties
@@ -102,9 +120,3 @@ I've added references to each gulp task where appropriate. The following were my
 * https://github.com/gusgard/angular-seed-es6
 * https://github.com/jakemmarsh/angularjs-gulp-browserify-boilerplate
 * https://browsersync.io/docs/gulp
-
-# Magnets, How do they work?
-
-I made a yotube video. Go forth and learn.
-
-[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/HU7QPPfZLOA/0.jpg)](https://www.youtube.com/watch?v=HU7QPPfZLOA)

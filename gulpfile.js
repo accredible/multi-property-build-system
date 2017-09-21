@@ -1,3 +1,6 @@
+var gulp = require('gulp');
+
+
 require('./gulp/args/args.js');
 
 
@@ -8,12 +11,11 @@ dumpMessage(`
  |___==___|   |   oodavid / accredible 2017
 /          \\  ·---------------------------- - -
 `);
-var gulp = require('gulp');
 
 
 gulp.task('default', [ 'args' ], function (done) {
   // Start the selected task
-  require(`./gulp/${global.config.task}.js`)
+  require(`./gulp/${global.config.task}.js`);
   var runSequence = require('run-sequence');
   return runSequence(
     global.config.task,

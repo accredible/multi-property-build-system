@@ -1,0 +1,46 @@
+@import "../env/ENV";
+@import "./normalize";
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #eeeeee;
+}
+
+#container {
+  width: 908px;
+  margin: 0 auto;
+  padding: 10px;
+  min-height: 100%;
+  background-color: white;
+}
+
+#env-ribbon {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+  margin: 0 0 -200px 0;
+  &:after {
+    content: "#{$env-name}";
+    width: 200px;
+    top: 25px;
+    right: -50px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    background: $env-color;
+    position: absolute;
+    text-align: center;
+    line-height: 50px;
+    letter-spacing: 1px;
+    color: #ffffff;
+    box-shadow: 0 0 5px rgba(0,0,0,.6);
+    text-shadow: 1px 1px 1px #000;
+  }
+}
