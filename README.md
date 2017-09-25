@@ -2,6 +2,15 @@
 
 **Develop, Build and Test** multiple web-properties using a single task runner. _Don't Repeat Yourself._
 
+# Installation
+
+```
+npm install gulp -g
+git clone https://github.com/accredible/multi-property-build-system
+cd multi-property-build-system
+git install
+```
+
 # Commands
 
 The `gulp` command has optional `--task`, `--property` and `--env` arguments.
